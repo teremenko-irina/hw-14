@@ -61,5 +61,13 @@ public class AddRecordTest extends BaseTest {
         // Close the browser
         driver.quit();
     }
+@Test
+    // additional checking logic
+
+    private boolean isRecordPresentInTable(WebDriver driver, List<String> recordData) {
+        String recordName = recordData.get(0);
+        String tableRowsText = driver.findElement(Constant.WT_TABLE_ROWS).getText();
+        return tableRowsText.contains(recordName);
+    }
 }
 

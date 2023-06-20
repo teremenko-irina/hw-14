@@ -11,6 +11,7 @@ import org.testng.annotations.Test;
 import utils.Constant;
 
 import java.time.Duration;
+import java.util.List;
 
 public class DeleteRecordTest extends BaseTest {
 
@@ -38,6 +39,13 @@ public class DeleteRecordTest extends BaseTest {
 
         // Close the browser
         driver.quit();
+    }
+@Test
+    //additional checking logic
+    private boolean isRecordDeletedFromTable(WebDriver driver, List<String> recordData) {
+        String recordName = recordData.get(0);
+        String tableRowsText = driver.findElement(Constant.WT_TABLE_ROWS).getText();
+        return !tableRowsText.contains(recordName);
     }
 }
 

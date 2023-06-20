@@ -11,6 +11,7 @@ import org.testng.annotations.Test;
 import utils.Constant;
 
 import java.time.Duration;
+import java.util.List;
 
 public class EditRecordTest extends BaseTest {
 
@@ -56,4 +57,12 @@ public class EditRecordTest extends BaseTest {
     // Close the browser
     driver.quit();
 }
+
+    // additional checking logic
+    @Test
+    private boolean isRecordPresentInTable(WebDriver driver, List<String> recordData) {
+        String recordName = recordData.get(0);
+        String tableRowsText = driver.findElement(Constant.WT_TABLE_ROWS).getText();
+        return tableRowsText.contains(recordName);
+    }
 }

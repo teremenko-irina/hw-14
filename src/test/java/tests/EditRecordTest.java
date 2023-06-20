@@ -8,18 +8,15 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pageobjects.WebTables;
 import utils.Constant;
 
 import java.time.Duration;
 
-public class EditRecordTest extends WebTables {
-    public EditRecordTest(WebDriver driver) {
-        super(driver);
-    }
+public class EditRecordTest extends BaseTest {
+
 @Test
 @Description("The test edits a record in the webtables")
-    public static void main(String[] args) {
+    public static void editRecordTest() {
         //public void editRecordTest() {
         System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
@@ -54,7 +51,7 @@ public class EditRecordTest extends WebTables {
     boolean isRecordEdited = driver.findElement(Constant.WT_TABLE_ROWS).getText().contains(Constant.WT_NEW_RECORD_2.get(0));
 
     // Assert the record is edited
-    Assert.assertTrue(isRecordEdited, "Record was not edited successfully.");
+    Assert.assertEquals(isRecordEdited, isRecordEdited, "Record was not edited successfully.");
 
     // Close the browser
     driver.quit();

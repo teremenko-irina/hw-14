@@ -4,12 +4,14 @@
     <test name="Regression testing">
         <classes>
 
+
             <class name="tests.AddRecordTest"/>
-            <class name="tests.ButtonByTextTest"/>
+
+
             <class name="tests.EditRecordTest"/>
             <class name="tests.DeleteRecordTest"/>
 
-
+            <class name="tests.ButtonByTextTest"/>
 
 
         </classes>

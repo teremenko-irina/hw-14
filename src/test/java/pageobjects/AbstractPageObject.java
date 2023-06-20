@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Test;
 
 import java.time.Duration;
 import java.util.List;
@@ -15,11 +16,11 @@ public class AbstractPageObject {
     private final static int DURATION_TO_WAIT_DEFAULT = 4;
     protected WebDriver driver;
 
-
-    public AbstractPageObject(WebDriver driver) {
+   public AbstractPageObject(WebDriver driver) {
         this.driver = driver;
-    }
 
+    }
+ @Test
     public WebElement getElement(By by, int waitForSeconds) {
         return new WebDriverWait(driver, Duration.ofSeconds(waitForSeconds))
                 .until(ExpectedConditions.presenceOfElementLocated(by));

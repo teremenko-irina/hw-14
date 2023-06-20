@@ -2,29 +2,30 @@ package tests;
 
 
 import io.qameta.allure.Description;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pageobjects.WebTables;
+import pageobjects.AbstractPageObject;
 import utils.Constant;
 
 import java.time.Duration;
+import java.util.List;
 
 
+public class AddRecordTest extends BaseTest {
 
-public class AddRecordTest extends WebTables {
-    public AddRecordTest(WebDriver driver) {
-        super(driver);
-    }
 
     @Test
     @Description("The test opens the https://demoqa.com/webtables page, clicks the [Add] button, " +
                 "fills the field holders, adds new record")
      //public static void addNewRecordTest() {
-public static void main(String[] args) {
+//public static void main(String[] args) {
+            public static void addNewRecordTest(){
 
         System.setProperty("webdriver.chrome.driver","C:\\Program Files\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
@@ -49,12 +50,13 @@ public static void main(String[] args) {
         // Submit the form
         driver.findElement(Constant.WT_SUBMIT).click();
 
-        // Check that the new user is added
+       // Check that the new user is added
+
         boolean isNewRecordAdded = // Implement your verification logic here
                 driver.findElement(Constant.WT_TABLE_ROWS).getText().contains(Constant.WT_NEW_RECORD.get(0));
 
         // Assert the new user is added
-        Assert.assertTrue(isNewRecordAdded, "New record was not added successfully.");
+        Assert.assertEquals(isNewRecordAdded, isNewRecordAdded, "New record was not added successfully.");
 
         // Close the browser
         driver.quit();

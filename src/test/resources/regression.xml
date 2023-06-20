@@ -1,0 +1,20 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Use tests automation">
+
+    <test name="Regression testing">
+        <classes>
+
+
+            <class name="tests.AddRecordTest"/>
+
+
+            <class name="tests.EditRecordTest"/>
+            <class name="tests.DeleteRecordTest"/>
+
+            <class name="tests.ButtonByTextTest"/>
+
+
+        </classes>
+
+    </test>
+</suite>
